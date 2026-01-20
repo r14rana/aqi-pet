@@ -21,9 +21,10 @@
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
 body {
@@ -210,7 +211,8 @@ header:hover {
 /* HERO / EYES SECTION */
 #hero {
     height: 100vh;
-    min-height: 700px;
+    min-height: 850px;
+    /* Ensure content fits on smaller screens */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -218,8 +220,9 @@ header:hover {
     text-align: center;
     position: relative;
     background: #fff;
-    padding-top: 120px;
-    /* Spacing for fixed navbar */
+    padding-top: 150px;
+    /* Symmetry with bottom content */
+    padding-bottom: 2rem;
 }
 
 .face-container {
@@ -237,7 +240,8 @@ header:hover {
         0 20px 40px rgba(165, 165, 159, 0.4),
         inset 0 0 0 1px #ffffff;
     /* Subtle contour ring */
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    /* More distinct separation */
     cursor: pointer;
     transition: transform 0.1s;
     border: 6px solid #12f23b;
