@@ -397,8 +397,8 @@ footer {
         text-align: center;
         /* Center alignment for mobile */
         gap: 2rem;
-        padding-top: 140px;
-        /* Specific mobile padding */
+        padding-top: 180px;
+        /* Increased to ensure no overlap */
         min-height: auto;
         /* Let content dictate height on mobile */
         padding-bottom: 4rem;
