@@ -408,7 +408,7 @@ footer {
            - Large bottom padding (17rem) ensures scroll clearance
            - Height is auto to grow with content
         */
-        padding-top: 600px;
+        padding-top: 100px;
         min-height: auto;
         height: auto;
         /* Allow container to grow beyond viewport */
@@ -425,7 +425,7 @@ footer {
         /* Add horizontal breathing room */
 
         /* Negative margin to pull content slightly up into the specific spacing gap */
-        margin-top: -91px;
+        margin-top: 10px;
     }
 
     /* --- TYPOGRAPHY UPDATES --- */
@@ -462,7 +462,7 @@ footer {
         /* Structural spacing */
         width: 100%;
         gap: 1rem;
-        margin-bottom: 8rem;
+        margin-bottom: 0;
         margin-top: 2rem;
     }
 
