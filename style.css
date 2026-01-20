@@ -240,6 +240,10 @@ header:hover {
     transition: transform 0.1s;
     border: 6px solid #12f23b;
     /* Dark outer buffer */
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    aspect-ratio: 1/1;
+    /* Keep it square */
 }
 
 /* The screen cutout area */
