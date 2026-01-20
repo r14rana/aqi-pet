@@ -1,0 +1,484 @@
+:root {
+    /* "Clean White" Palette - Minimalist */
+    --bg-color: #ffffff;
+    --bg-gradient: none;
+    /* Flat clean look */
+    --card-bg: #f5f5f7;
+    /* Subtle apple-style grey */
+
+    --accent-color: #000000;
+    /* Monochrome headers */
+    --text-main: #1d1d1f;
+    /* Soft black */
+    --text-light: #86868b;
+
+    --box-color: #f2f2f7;
+    /* Off-White Body for contrast */
+    --eye-glow: rgba(255, 255, 255, 0.6);
+
+    --font-main: 'Nunito', sans-serif;
+    --font-head: 'Outfit', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-head);
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: 4rem;
+    /* Larger, cleaner */
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+}
+
+p {
+    line-height: 1.6;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+section {
+    padding: 6rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+.btn.primary {
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 1px solid #d2d2d7;
+    color: #1d1d1f;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* NAVBAR */
+/* NAVBAR - iOS 26 Liquid Glass Theme */
+header {
+    width: 90%;
+    max-width: 1000px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    /* Higher z-index to float above everything */
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+    /* Liquid Glossy Shadow */
+    box-shadow:
+        0 8px 32px 0 rgba(31, 38, 135, 0.1),
+        0 2px 8px 0 rgba(255, 255, 255, 0.4) inset;
+    padding: 0 1.5rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hover effect on the whole bar */
+header:hover {
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow:
+        0 8px 40px 0 rgba(31, 38, 135, 0.15),
+        0 4px 12px 0 rgba(255, 255, 255, 0.5) inset;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-link:hover {
+    color: #000;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-nav {
+    padding: 0.5rem 1.5rem;
+    background: #000;
+    color: #fff;
+    border-radius: 50px;
+    transition: transform 0.2s;
+}
+
+.btn-nav:hover {
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--text-main);
+    border-radius: 3px;
+}
+
+/* HERO / EYES SECTION */
+#hero {
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background: #fff;
+}
+
+.face-container {
+    width: 280px;
+    height: 280px;
+    background: #f6ff00;
+    /* Matte Black */
+    border-radius: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Darker shadow for depth */
+    box-shadow:
+        0 20px 40px rgba(165, 165, 159, 0.4),
+        inset 0 0 0 1px #ffffff;
+    /* Subtle contour ring */
+    margin-bottom: 3rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border: 6px solid #12f23b;
+    /* Dark outer buffer */
+}
+
+/* The screen cutout area */
+.face {
+    width: 160px;
+    height: 90px;
+    background: #000;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.eye {
+    width: 55px;
+    height: 55px;
+    position: relative;
+    /* Eye container is transparent, pupil does the visuals */
+}
+
+.pupil {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--eye-glow);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* HAPPY EXPRESSION */
+.eye.happy .pupil {
+    height: 25px;
+    width: 55px;
+    border-radius: 50px 50px 0 0;
+    margin-top: 15px;
+    box-shadow: 0 -5px 15px var(--eye-glow);
+}
+
+/* SAD EXPRESSION */
+.eye.sad .pupil {
+    height: 25px;
+    width: 55px;
+    border-radius: 0 0 50px 50px;
+    margin-top: 15px;
+    transform: rotate(-10deg);
+    /* Slight droop for left eye */
+}
+
+/* Sad Rotation for Right Eye */
+.eye.right.sad .pupil {
+    transform: rotate(10deg);
+}
+
+/* CONTENT SECTIONS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 30px;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.2s;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: #f0f0f2;
+}
+
+.card h3 {
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    text-shadow: none;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Remove decorative borders */
+.card::before {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    font-size: 0.9rem;
+    color: #86868b;
+    background: var(--bg-color);
+    border-top: 1px solid #f5f5f7;
+}
+
+/* BLINK ANIMATION CLASS */
+.blink {
+    animation: blink-anim 0.2s linear;
+}
+
+@keyframes blink-anim {
+    0% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.1);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .face-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Mobile Nav */
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        /* Adjust based on header height */
+        gap: 0;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 1rem 0;
+    }
+}
+
+/* CITY PRESETS CARDS */
+.city-presets {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.city-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.city-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.city-card.active {
+    background: #fff;
+    border-color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.city-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.city-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.aqi-val {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.indicator.clean {
+    background-color: #34c759;
+    /* Green */
+    box-shadow: 0 0 10px rgba(52, 199, 89, 0.4);
+}
+
+.indicator.neutral {
+    background-color: #ffcc00;
+    /* Yellow */
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+}
+
+.indicator.polluted {
+    background-color: #ff3b30;
+    /* Red */
+    box-shadow: 0 0 10px rgba(255, 59, 48, 0.4);
+}

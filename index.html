@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Pet - Your Cute Air Quality Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">AQI Pet</a>
+            <nav>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#buy" class="nav-link btn-nav">Order</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="face-container">
+                <div class="face">
+                    <div class="eye left">
+                        <div class="pupil"></div>
+                    </div>
+                    <div class="eye right">
+                        <div class="pupil"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <h1>Meet AQI Pet</h1>
+                <p>The cutest way to monitor your air quality.</p>
+
+                <div class="city-presets">
+                    <!-- Clean City -->
+                    <div class="city-card" data-mood="happy">
+                        <div class="indicator clean"></div>
+                        <div class="city-info">
+                            <span class="city-name">Zurich</span>
+                            <span class="aqi-val">AQI 10</span>
+                        </div>
+                    </div>
+
+                    <!-- Neutral City -->
+                    <div class="city-card" data-mood="neutral">
+                        <div class="indicator neutral"></div>
+                        <div class="city-info">
+                            <span class="city-name">New York</span>
+                            <span class="aqi-val">AQI 65</span>
+                        </div>
+                    </div>
+
+                    <!-- Polluted City -->
+                    <div class="city-card" data-mood="sad">
+                        <div class="indicator polluted"></div>
+                        <div class="city-info">
+                            <span class="city-name">Beijing</span>
+                            <span class="aqi-val">AQI 180</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>Not Just a Box</h2>
+                <p>AQI Pet sits on your desk, keeping an eye on the air you breathe. When the air is clean, it's happy.
+                    when it's not... well, you'll know.</p>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Real-time Monitoring</h3>
+                        <p>Instant feedback on your environment.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Expressive Eyes</h3>
+                        <p>Communicates data through cute expressions.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Compact Design</h3>
+                        <p>Fits perfectly on any setup.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="buy">
+            <div class="container">
+                <h2>Ready to breathe better?</h2>
+                <button class="btn primary large">Order Now</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AQI Pet. Designed for healthier spaces.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
