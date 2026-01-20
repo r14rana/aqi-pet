@@ -411,6 +411,7 @@ footer {
         /* Full width */
         padding: 0 1rem;
         /* Side padding */
+        margin-top: 1px;
     }
 
     .city-presets {
