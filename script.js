@@ -96,23 +96,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // OPEN-METEO API INTEGRATION
-    const candidates = [
-        { name: "Zurich", lat: 47.37, lon: 8.54 },
-        { name: "Helsinki", lat: 60.16, lon: 24.93 },
-        { name: "New York", lat: 40.71, lon: -74.00 },
-        { name: "Tokyo", lat: 35.67, lon: 139.65 },
-        { name: "Delhi", lat: 28.61, lon: 77.20 },
-        { name: "Beijing", lat: 39.90, lon: 116.40 },
-        { name: "Santiago", lat: -33.44, lon: -70.66 },
+    // Extended list of 50 major global cities for variety
+    const allCities = [
+        { name: "Tokyo", lat: 35.6895, lon: 139.6917 },
+        { name: "Delhi", lat: 28.7041, lon: 77.1025 },
+        { name: "Shanghai", lat: 31.2304, lon: 121.4737 },
+        { name: "São Paulo", lat: -23.5505, lon: -46.6333 },
+        { name: "Mexico City", lat: 19.4326, lon: -99.1332 },
+        { name: "Cairo", lat: 30.0444, lon: 31.2357 },
+        { name: "Mumbai", lat: 19.0760, lon: 72.8777 },
+        { name: "Beijing", lat: 39.9042, lon: 116.4074 },
+        { name: "Dhaka", lat: 23.8103, lon: 90.4125 },
+        { name: "Osaka", lat: 34.6937, lon: 135.5022 },
+        { name: "New York", lat: 40.7128, lon: -74.0060 },
+        { name: "Karachi", lat: 24.8607, lon: 67.0011 },
+        { name: "Buenos Aires", lat: -34.6037, lon: -58.3816 },
+        { name: "Istanbul", lat: 41.0082, lon: 28.9784 },
+        { name: "Kolkata", lat: 22.5726, lon: 88.3639 },
+        { name: "Lagos", lat: 6.5244, lon: 3.3792 },
+        { name: "Manila", lat: 14.5995, lon: 120.9842 },
+        { name: "Rio de Janeiro", lat: -22.9068, lon: -43.1729 },
+        { name: "Los Angeles", lat: 34.0522, lon: -118.2437 },
+        { name: "Moscow", lat: 55.7558, lon: 37.6173 },
+        { name: "Lahore", lat: 31.5498, lon: 74.3436 },
+        { name: "Bangalore", lat: 12.9716, lon: 77.5946 },
+        { name: "Paris", lat: 48.8566, lon: 2.3522 },
+        { name: "Jakarta", lat: -6.2088, lon: 106.8456 },
+        { name: "London", lat: 51.5074, lon: -0.1278 },
+        { name: "Chicago", lat: 41.8781, lon: -87.6298 },
+        { name: "Bangkok", lat: 13.7563, lon: 100.5018 },
+        { name: "Seoul", lat: 37.5665, lon: 126.9780 },
+        { name: "Santiago", lat: -33.4489, lon: -70.6693 },
+        { name: "Madrid", lat: 40.4168, lon: -3.7038 },
         { name: "Sydney", lat: -33.86, lon: 151.20 },
-        { name: "London", lat: 51.50, lon: -0.12 }
+        { name: "Toronto", lat: 43.6532, lon: -79.3832 },
+        { name: "Berlin", lat: 52.5200, lon: 13.4050 },
+        { name: "Singapore", lat: 1.3521, lon: 103.8198 },
+        { name: "Baghdad", lat: 33.3152, lon: 44.3661 },
+        { name: "Hanoi", lat: 21.0285, lon: 105.8542 },
+        { name: "Lima", lat: -12.0464, lon: -77.0428 },
+        { name: "Nairobi", lat: -1.2921, lon: 36.8219 },
+        { name: "Riyadh", lat: 24.7136, lon: 46.6877 },
+        { name: "Tehran", lat: 35.6892, lon: 51.3890 },
+        { name: "Dubai", lat: 25.2048, lon: 55.2708 },
+        { name: "San Francisco", lat: 37.7749, lon: -122.4194 },
+        { name: "Barcelona", lat: 41.3851, lon: 2.1734 },
+        { name: "Vancouver", lat: 49.2827, lon: -123.1207 },
+        { name: "Melbourne", lat: -37.8136, lon: 144.9631 },
+        { name: "Johannesburg", lat: -26.2041, lon: 28.0473 },
+        { name: "Taipei", lat: 25.0330, lon: 121.5654 },
+        { name: "Hong Kong", lat: 22.3193, lon: 114.1694 },
+        { name: "Milan", lat: 45.4642, lon: 9.1900 },
+        { name: "Zurich", lat: 47.3769, lon: 8.5417 }
     ];
 
     async function fetchLiveAQI() {
         try {
-            // Build query params
-            const lats = candidates.map(c => c.lat).join(',');
-            const lons = candidates.map(c => c.lon).join(',');
+            // Randomly shuffle the cities and pick 20
+            const shuffled = allCities.sort(() => 0.5 - Math.random());
+            const selectedCities = shuffled.slice(0, 20);
+
+            // Build query params for the selected batch
+            const lats = selectedCities.map(c => c.lat).join(',');
+            const lons = selectedCities.map(c => c.lon).join(',');
             const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lats}&longitude=${lons}&current=us_aqi`;
 
             const response = await fetch(url);
@@ -121,15 +167,15 @@ document.addEventListener('DOMContentLoaded', () => {
             let results = [];
             if (Array.isArray(data)) {
                 results = data.map((d, i) => ({
-                    name: candidates[i].name,
+                    name: selectedCities[i].name,
                     aqi: d.current.us_aqi
                 }));
             } else {
-                // Single result (fallback)
-                results = [{ name: candidates[0].name, aqi: data.current.us_aqi }];
+                // Fallback if API returns single object (unlikely with >1 city but safely handled)
+                results = [{ name: selectedCities[0].name, aqi: data.current.us_aqi }];
             }
 
-            // Sort by AQI
+            // Sort by AQI (Cleanest -> Dirtiest)
             results.sort((a, b) => a.aqi - b.aqi);
 
             // Select Best, Median, Worst
