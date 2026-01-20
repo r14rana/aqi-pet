@@ -218,6 +218,8 @@ header:hover {
     text-align: center;
     position: relative;
     background: #fff;
+    padding-top: 120px;
+    /* Spacing for fixed navbar */
 }
 
 .face-container {
