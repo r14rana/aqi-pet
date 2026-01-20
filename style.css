@@ -417,6 +417,22 @@ footer {
     .city-presets {
         justify-content: center;
         /* Re-center cards */
+        flex-direction: column;
+        /* Stack vertically! */
+        align-items: center;
+        /* Center the stack */
+        width: 100%;
+        /* Ensure full width availability */
+        gap: 1rem;
+    }
+
+    .city-card {
+        width: 100%;
+        /* Make cards full width */
+        max-width: 300px;
+        /* But don't let them get too wide */
+        justify-content: flex-start;
+        /* Correct text alignment inside card */
     }
 
     h1 {
@@ -426,7 +442,7 @@ footer {
     .face-container {
         width: 250px;
         height: 250px;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
         /* Adjusted mobile margin */
         aspect-ratio: 1/1;
     }
