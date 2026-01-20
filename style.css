@@ -389,94 +389,131 @@ footer {
     }
 }
 
-/* RESPONSIVE */
+/* =========================================
+   MOBILE RESPONSIVENESS (Max-Width: 768px)
+   ========================================= */
 @media (max-width: 768px) {
+
+    /* --- HERO SECTION LAYOUT --- */
     #hero {
+        /* Switch to column layout to stack Face (top) and Text (bottom) */
         flex-direction: column;
-        /* Stack vertically on mobile */
+        justify-content: center;
         text-align: center;
-        /* Center alignment for mobile */
         gap: 5rem;
-        padding-top: 280px;
-        /* Increased to ensure no overlap */
+
+        /* 
+           CUSTOM MOBILE SPACING 
+           - Large top padding (600px) creates significant negative space below navbar
+           - Large bottom padding (17rem) ensures scroll clearance
+           - Height is auto to grow with content
+        */
+        padding-top: 600px;
         min-height: auto;
-        /* Let content dictate height on mobile */
-        padding-bottom: 4rem;
+        padding-bottom: 17rem;
     }
 
+    /* --- HERO CONTENT WRAPPER --- */
     .hero-content {
         align-items: center;
-        /* Re-center text items */
+        /* Center align all text elements */
         width: 100%;
-        /* Full width */
+        /* Ensure full width usage */
         padding: 0 1rem;
-        /* Side padding */
+        /* Add horizontal breathing room */
+
+        /* Negative margin to pull content slightly up into the specific spacing gap */
         margin-top: -91px;
     }
 
+    /* --- TYPOGRAPHY UPDATES --- */
+    h1 {
+        font-size: 2.5rem;
+        /* Reduce heading size for smaller screens */
+        line-height: 1.2;
+    }
+
+    p {
+        font-size: 1.1rem;
+        /* Ensure body text remains readable */
+    }
+
+    /* --- FACE CONTAINER ADJUSTMENTS --- */
+    .face-container {
+        /* Lock dimensions to ensure 1:1 aspect ratio on phone */
+        width: 250px;
+        height: 250px;
+        aspect-ratio: 1/1;
+
+        /* Spacing below face before content starts */
+        margin-bottom: 1rem;
+    }
+
+    /* --- CITY PRESETS CARD STACK --- */
     .city-presets {
-        justify-content: center;
-        /* Re-center cards */
+        /* Switch to Vertical Stack for better mobile touch targets */
+        display: flex;
         flex-direction: column;
-        /* Stack vertically! */
+        justify-content: center;
         align-items: center;
-        /* Center the stack */
+
+        /* Structural spacing */
         width: 100%;
-        /* Ensure full width availability */
         gap: 1rem;
         margin-bottom: 8rem;
+        margin-top: 2rem;
     }
 
     .city-card {
+        /* Full width cards for easier tapping */
         width: 100%;
-        /* Make cards full width */
         max-width: 300px;
-        /* But don't let them get too wide */
+        /* Cap width to prevent looking stretched */
+
+        /* Align internal content to start */
         justify-content: flex-start;
-        /* Correct text alignment inside card */
     }
 
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .face-container {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 1rem;
-        /* Adjusted mobile margin */
-        aspect-ratio: 1/1;
-    }
-
-    /* ... restore other mobile styles ... */
-
-    /* Mobile Nav */
+    /* --- MOBILE NAVIGATION --- */
+    /* Show the hamburger toggle button */
     .menu-toggle {
         display: block;
     }
 
+    /* Floating Mobile Menu Container */
     .nav-menu {
         position: fixed;
         left: -100%;
+        /* Hidden off-screen by default */
         top: 70px;
-        gap: 0;
+        /* Position below the header */
+        width: 100%;
+
+        /* Layout */
+        display: flex;
         flex-direction: column;
+        gap: 0;
+        padding: 2rem 0;
+        text-align: center;
+
+        /* Visuals: Glassmorphism background */
         background-color: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
+
+        /* Smooth Slide Animation */
+        transition: 0.3s ease-in-out;
     }
 
+    /* Active state to slide menu in */
     .nav-menu.active {
         left: 0;
     }
 
     .nav-item {
         margin: 1rem 0;
+        /* Spacing between mobile menu links */
     }
 }
 
