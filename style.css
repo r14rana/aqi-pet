@@ -212,17 +212,34 @@ header:hover {
 #hero {
     height: 100vh;
     min-height: 850px;
-    /* Ensure content fits on smaller screens */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    /* Split Side-by-Side */
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
+    /* Text aligns left in its column */
     position: relative;
     background: #fff;
     padding-top: 150px;
-    /* Symmetry with bottom content */
     padding-bottom: 2rem;
+    gap: 8rem;
+    /* Space between face and text */
+}
+
+/* Specific styling to ensure items take up right space */
+.hero-content {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align text to start */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
 }
 
 .face-container {
@@ -374,6 +391,25 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    #hero {
+        flex-direction: column;
+        /* Stack vertically on mobile */
+        text-align: center;
+        /* Center alignment for mobile */
+        gap: 2rem;
+        padding-top: 120px;
+    }
+
+    .hero-content {
+        align-items: center;
+        /* Re-center text items */
+    }
+
+    .city-presets {
+        justify-content: center;
+        /* Re-center cards */
+    }
+
     h1 {
         font-size: 2.5rem;
     }
@@ -381,7 +417,10 @@ footer {
     .face-container {
         width: 250px;
         height: 250px;
+        margin-bottom: 2rem;
     }
+
+    /* ... restore other mobile styles ... */
 
     /* Mobile Nav */
     .menu-toggle {
@@ -392,7 +431,6 @@ footer {
         position: fixed;
         left: -100%;
         top: 70px;
-        /* Adjust based on header height */
         gap: 0;
         flex-direction: column;
         background-color: rgba(255, 255, 255, 0.95);
