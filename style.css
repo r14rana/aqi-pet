@@ -424,6 +424,7 @@ footer {
         width: 100%;
         /* Ensure full width availability */
         gap: 1rem;
+        margin-bottom: 8rem;
     }
 
     .city-card {
