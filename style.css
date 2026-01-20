@@ -397,12 +397,20 @@ footer {
         text-align: center;
         /* Center alignment for mobile */
         gap: 2rem;
-        padding-top: 120px;
+        padding-top: 140px;
+        /* Specific mobile padding */
+        min-height: auto;
+        /* Let content dictate height on mobile */
+        padding-bottom: 4rem;
     }
 
     .hero-content {
         align-items: center;
         /* Re-center text items */
+        width: 100%;
+        /* Full width */
+        padding: 0 1rem;
+        /* Side padding */
     }
 
     .city-presets {
@@ -417,7 +425,9 @@ footer {
     .face-container {
         width: 250px;
         height: 250px;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+        /* Adjusted mobile margin */
+        aspect-ratio: 1/1;
     }
 
     /* ... restore other mobile styles ... */
