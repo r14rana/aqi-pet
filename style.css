@@ -485,6 +485,9 @@ footer {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Ensure cards are clickable above any overlap */
+    position: relative;
+    z-index: 10;
 }
 
 .city-card:hover {
