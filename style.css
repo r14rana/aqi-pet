@@ -410,6 +410,8 @@ footer {
         */
         padding-top: 600px;
         min-height: auto;
+        height: auto;
+        /* Allow container to grow beyond viewport */
         padding-bottom: 17rem;
     }
 
