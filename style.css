@@ -396,7 +396,7 @@ footer {
         /* Stack vertically on mobile */
         text-align: center;
         /* Center alignment for mobile */
-        gap: 2rem;
+        gap: 5rem;
         padding-top: 180px;
         /* Increased to ensure no overlap */
         min-height: auto;
