@@ -389,6 +389,94 @@ footer {
     }
 }
 
+/* CITY PRESETS CARDS */
+.city-presets {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 1.25rem;
+
+    align-items: center;
+    justify-content: start;
+
+    margin-top: 2rem;
+}
+
+
+
+.city-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Ensure cards are clickable above any overlap */
+    position: relative;
+    z-index: 10;
+}
+
+.city-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.city-card.active {
+    background: #fff;
+    border-color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.city-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.city-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.aqi-val {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.indicator.clean {
+    background-color: #34c759;
+    /* Green */
+    box-shadow: 0 0 10px rgba(52, 199, 89, 0.4);
+}
+
+.indicator.neutral {
+    background-color: #ffcc00;
+    /* Yellow */
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+}
+
+.indicator.polluted {
+    background-color: #ff3b30;
+    /* Red */
+    box-shadow: 0 0 10px rgba(255, 59, 48, 0.4);
+}
+
 /* =========================================
    MOBILE RESPONSIVENESS (Max-Width: 768px)
    ========================================= */
@@ -425,7 +513,7 @@ footer {
         /* Add horizontal breathing room */
 
         /* Negative margin to pull content slightly up into the specific spacing gap */
-        margin-top: 10px;
+        margin-top: 1px;
     }
 
     /* --- TYPOGRAPHY UPDATES --- */
@@ -454,15 +542,10 @@ footer {
     /* --- CITY PRESETS CARD STACK --- */
     .city-presets {
         /* Switch to Vertical Stack for better mobile touch targets */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        /* Structural spacing */
-        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
         gap: 1rem;
-        margin-bottom: 0;
         margin-top: 2rem;
     }
 
@@ -517,86 +600,4 @@ footer {
         margin: 1rem 0;
         /* Spacing between mobile menu links */
     }
-}
-
-/* CITY PRESETS CARDS */
-.city-presets {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
-
-.city-card {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    /* Ensure cards are clickable above any overlap */
-    position: relative;
-    z-index: 10;
-}
-
-.city-card:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.city-card.active {
-    background: #fff;
-    border-color: #000;
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.city-info {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.city-name {
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text-main);
-}
-
-.aqi-val {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    font-weight: 600;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-
-.indicator.clean {
-    background-color: #34c759;
-    /* Green */
-    box-shadow: 0 0 10px rgba(52, 199, 89, 0.4);
-}
-
-.indicator.neutral {
-    background-color: #ffcc00;
-    /* Yellow */
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
-}
-
-.indicator.polluted {
-    background-color: #ff3b30;
-    /* Red */
-    box-shadow: 0 0 10px rgba(255, 59, 48, 0.4);
 }
