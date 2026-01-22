@@ -86,12 +86,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Interactive Click
+    // Interactive Click & Hover
     cityCards.forEach(card => {
-        card.addEventListener('click', () => {
-            cityCards.forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            const mood = card.dataset.mood;
-            setMood(mood);
+        ['click', 'mouseenter'].forEach(evt => {
+            card.addEventListener(evt, () => {
+                // Set active state for both click and hover
+                cityCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+
+                // Update the mood
+                const mood = card.dataset.mood;
+                setMood(mood);
+            });
         });
     });
 
