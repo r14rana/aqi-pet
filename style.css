@@ -245,7 +245,7 @@ header:hover {
 .face-container {
     width: 280px;
     height: 280px;
-    background: #f6ff00;
+    background: #F4FF00;
     /* Matte Black */
     border-radius: 40px;
     position: relative;
@@ -261,7 +261,7 @@ header:hover {
     /* More distinct separation */
     cursor: pointer;
     transition: transform 0.1s;
-    border: 6px solid #12f23b;
+    border: 6px solid #2EE66B;
     /* Dark outer buffer */
     flex-shrink: 0;
     /* Prevent shrinking */
@@ -301,6 +301,7 @@ header:hover {
 .eye.happy .pupil {
     height: 25px;
     width: 55px;
+    background: #04ff47;
     border-radius: 50px 50px 0 0;
     margin-top: 15px;
     box-shadow: 0 -5px 15px var(--eye-glow);
@@ -310,6 +311,7 @@ header:hover {
 .eye.sad .pupil {
     height: 25px;
     width: 55px;
+    background: #ff0101;
     border-radius: 0 0 50px 50px;
     margin-top: 15px;
     transform: rotate(-10deg);
