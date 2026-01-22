@@ -487,68 +487,72 @@ footer {
     /* --- HERO SECTION LAYOUT --- */
     #hero {
         /* Switch to column layout to stack Face (top) and Text (bottom) */
+        /* Switch to column layout to stack Text (top) and Face (bottom) */
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        gap: 5rem;
+        gap: 0;
 
         /* 
            CUSTOM MOBILE SPACING 
-           - Large top padding (600px) creates significant negative space below navbar
-           - Large bottom padding (17rem) ensures scroll clearance
-           - Height is auto to grow with content
         */
         padding-top: 100px;
         min-height: auto;
         height: auto;
-        /* Allow container to grow beyond viewport */
-        padding-bottom: 17rem;
+        padding-bottom: 5rem;
+        /* Padding to replace the removed wrapper padding */
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     /* --- HERO CONTENT WRAPPER --- */
+    /* --- HERO CONTENT WRAPPER --- */
+    /* Use display: contents to unwrap children so they can be reordered relative to siblings */
     .hero-content {
-        align-items: center;
-        /* Center align all text elements */
-        width: 100%;
-        /* Ensure full width usage */
-        padding: 0 1rem;
-        /* Add horizontal breathing room */
-
-        /* Negative margin to pull content slightly up into the specific spacing gap */
-        margin-top: 1px;
+        display: contents;
     }
 
     /* --- TYPOGRAPHY UPDATES --- */
     h1 {
+        order: 1;
         font-size: 2.5rem;
         /* Reduce heading size for smaller screens */
         line-height: 1.2;
+        margin-bottom: 1rem;
     }
 
     p {
+        order: 2;
         font-size: 1.1rem;
         /* Ensure body text remains readable */
+        margin-bottom: 3rem;
     }
 
     /* --- FACE CONTAINER ADJUSTMENTS --- */
+    /* --- FACE CONTAINER ADJUSTMENTS --- */
     .face-container {
+        order: 3;
         /* Lock dimensions to ensure 1:1 aspect ratio on phone */
         width: 250px;
         height: 250px;
         aspect-ratio: 1/1;
 
         /* Spacing below face before content starts */
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
     }
 
     /* --- CITY PRESETS CARD STACK --- */
+    /* --- CITY PRESETS CARD STACK --- */
     .city-presets {
+        order: 4;
         /* Switch to Vertical Stack for better mobile touch targets */
         display: grid;
         grid-template-columns: 1fr;
         justify-items: center;
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 0;
+        width: 100%;
+        padding: 0 1rem;
     }
 
     .city-card {
