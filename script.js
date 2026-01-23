@@ -74,6 +74,24 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.remove("active");
     }));
 
+    // NAVBAR SCROLL BEHAVIOR
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        // If scrolling down & past a threshold, hide nav
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            header.classList.add('nav-hidden');
+        } else {
+            // Scrolling up
+            header.classList.remove('nav-hidden');
+        }
+
+        lastScrollY = currentScrollY;
+    });
+
     // CITY PRESET CONTROLS & LIVE DATA
     const cityCards = document.querySelectorAll('.city-card');
 

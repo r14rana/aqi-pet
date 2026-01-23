@@ -134,6 +134,10 @@ header:hover {
     transform: translateX(-50%) translateY(-2px);
 }
 
+header.nav-hidden {
+    transform: translateX(-50%) translateY(-200%);
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
