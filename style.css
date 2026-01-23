@@ -610,7 +610,7 @@ footer {
     /* Floating Mobile Menu Container */
     .nav-menu {
         position: fixed;
-        left: -100%;
+        left: -106%;
         /* Hidden off-screen by default */
         top: 70px;
         /* Position below the header */
